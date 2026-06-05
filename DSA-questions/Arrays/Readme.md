@@ -20,6 +20,7 @@ This folder contains array-related problems, notes, observations, and solutions 
 | 1749. Maximum Absolute Sum of Any Subarray | Kadane's Algorithm |
 | 56. Merge Intervals | Sorting + Intervals |
 | 31. Next Permutation | Array Manipulation, Lexicographical Order |
+| 88. Merge Sorted Array | Two Pointers |
 
 ## Session 3
 
@@ -51,6 +52,7 @@ This folder contains array-related problems, notes, observations, and solutions 
 - Binary Search on Answer
 - Modified Binary Search
 - Sliding Window
+- Two Pointers
 - Kadane's Algorithm
 - Heap
 - Sorting
@@ -62,4 +64,4 @@ This folder contains array-related problems, notes, observations, and solutions 
 ## Total Progress
 
 - Sessions Completed: 4
-- Problems Solved: 20
+- Problems Solved: 21
