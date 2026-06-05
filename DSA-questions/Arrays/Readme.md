@@ -34,6 +34,11 @@ This folder contains array-related problems, notes, observations, and solutions 
 |----------|------------------|
 | 118. Pascal's Triangle | Simulation |
 | 136. Single Number | Bit Manipulation (XOR) |
+| 704. Binary Search | Binary Search |
+| 69. Sqrt(x) | Binary Search on Answer |
+| 643. Maximum Average Subarray I | Sliding Window |
+| 628. Maximum Product of Three Numbers | Sorting, Mathematical Observation |
+| 33. Search in Rotated Sorted Array | Modified Binary Search |
 
 ## Patterns Covered So Far
 
@@ -42,15 +47,19 @@ This folder contains array-related problems, notes, observations, and solutions 
 - Prefix Sum
 - HashMap
 - Bit Manipulation
+- Binary Search
+- Binary Search on Answer
+- Modified Binary Search
+- Sliding Window
 - Kadane's Algorithm
 - Heap
 - Sorting
 - Intervals
-- Floyd Cycle Detection
+- Floyd's Cycle Detection
 - Simulation
 - Array Manipulation
 
 ## Total Progress
 
 - Sessions Completed: 4
-- Problems Solved: 13
+- Problems Solved: 20
