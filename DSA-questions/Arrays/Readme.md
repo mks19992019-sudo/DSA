@@ -41,6 +41,12 @@ This folder contains array-related problems, notes, observations, and solutions 
 | 628. Maximum Product of Three Numbers | Sorting, Mathematical Observation |
 | 33. Search in Rotated Sorted Array | Modified Binary Search |
 
+## Session 5
+
+| Problem | Pattern / Concept |
+|----------|------------------|
+| 70. Climbing Stairs | Dynamic Programming (DP), Recursion, Memoization |
+
 ## Patterns Covered So Far
 
 - Array Traversal
@@ -60,8 +66,11 @@ This folder contains array-related problems, notes, observations, and solutions 
 - Floyd's Cycle Detection
 - Simulation
 - Array Manipulation
+- Dynamic Programming (DP)
+- Recursion
+- Memoization
 
 ## Total Progress
 
 - Sessions Completed: 4
-- Problems Solved: 21
+- Problems Solved: 20
