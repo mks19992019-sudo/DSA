@@ -1,6 +1,8 @@
 # Arrays
 
-This folder contains array-related problems, notes, observations, and solutions documented throughout my DSA learning journey.
+This folder contains problems, notes, observations, and solutions documented throughout my Data Structures and Algorithms (DSA) learning journey. The goal is not only to solve problems but also to identify recurring patterns, understand the reasoning behind efficient solutions, and build strong problem-solving skills through consistent practice.
+
+Each session represents a focused set of problems solved during my learning process, along with the key concepts and techniques applied.
 
 ## Session 1
 
@@ -12,6 +14,15 @@ This folder contains array-related problems, notes, observations, and solutions 
 | 215. Kth Largest Element in an Array | Heap (Priority Queue) |
 | 53. Maximum Subarray | Kadane's Algorithm |
 
+Key Learnings
+- Efficient array traversal techniques.
+- Maintaining running minimums and maximums.
+- Using heaps for selection problems.
+- Understanding Prefix Sum and Greedy strategies.
+- Introduction to Kadane's Algorithm for subarray optimization.
+
+---
+
 ## Session 2
 
 | Problem | Pattern / Concept |
@@ -22,12 +33,29 @@ This folder contains array-related problems, notes, observations, and solutions 
 | 31. Next Permutation | Array Manipulation, Lexicographical Order |
 | 88. Merge Sorted Array | Two Pointers |
 
+Key Learnings
+- Applying cycle detection beyond linked lists.
+- Working with interval-based problems.
+- Understanding lexicographical ordering concepts.
+- Using Two Pointer techniques for optimized array processing.
+- Strengthening sorting-based problem-solving approaches.
+
+---
+
 ## Session 3
 
 | Problem | Pattern / Concept |
 |----------|------------------|
 | 121. Best Time to Buy and Sell Stock | Greedy |
 | 560. Subarray Sum Equals K | Prefix Sum + HashMap |
+
+Key Learnings
+- Recognizing Greedy opportunities.
+- Combining Prefix Sum with HashMaps for efficient lookups.
+- Optimizing brute-force subarray solutions.
+- Understanding cumulative sum techniques.
+
+---
 
 ## Session 4
 
@@ -41,18 +69,44 @@ This folder contains array-related problems, notes, observations, and solutions 
 | 628. Maximum Product of Three Numbers | Sorting, Mathematical Observation |
 | 33. Search in Rotated Sorted Array | Modified Binary Search |
 
+Key Learnings
+- Building solutions through simulation.
+- Applying XOR for constant-space solutions.
+- Understanding Binary Search and its variations.
+- Learning Binary Search on Answer.
+- Using Sliding Window to reduce time complexity.
+- Handling rotated arrays with modified search logic.
+
+---
+
 ## Session 5
 
 | Problem | Pattern / Concept |
 |----------|------------------|
 | 70. Climbing Stairs | Dynamic Programming (DP), Recursion, Memoization |
+| 171. Excel Sheet Column Number | Base Conversion, Positional Number System |
+| 202. Happy Number | Hash Set, Cycle Detection, Number Manipulation |
+| 231. Power of Two | Mathematical Observation, Bit Manipulation |
+| 258. Add Digits | Digit Manipulation, Mathematical Pattern |
+
+Key Learnings
+- Understanding how recursive problems can be optimized using Dynamic Programming and Memoization.
+- Applying positional number system concepts through Excel column conversions.
+- Detecting cycles efficiently using hash-based data structures.
+- Solving mathematical problems through observation instead of brute force.
+- Working with repeated digit transformations and number manipulation techniques.
+- Reinforcing the importance of recognizing patterns before implementing solutions.
+
+---
 
 ## Patterns Covered So Far
 
 - Array Traversal
+- Array Manipulation
 - Greedy
 - Prefix Sum
 - HashMap
+- Hash Set
 - Bit Manipulation
 - Binary Search
 - Binary Search on Answer
@@ -60,17 +114,26 @@ This folder contains array-related problems, notes, observations, and solutions 
 - Sliding Window
 - Two Pointers
 - Kadane's Algorithm
-- Heap
+- Heap (Priority Queue)
 - Sorting
 - Intervals
 - Floyd's Cycle Detection
 - Simulation
-- Array Manipulation
 - Dynamic Programming (DP)
 - Recursion
 - Memoization
+- Base Conversion
+- Positional Number System
+- Number Manipulation
+- Mathematical Observation
+- Mathematical Pattern Recognition
 
-## Total Progress
+---
 
-- Sessions Completed: 4
-- Problems Solved: 20
+## Progress Summary
+
+- Sessions Completed: 5
+- Problems Solved: 25
+- Problem-Solving Patterns Explored: 25+
+
+This repository serves as a structured record of my DSA learning journey, focusing on problem-solving patterns, algorithmic thinking, optimization techniques, and consistent practice.
