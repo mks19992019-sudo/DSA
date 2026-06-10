@@ -111,6 +111,32 @@ Each session represents a focused set of problems solved during my learning proc
 - Understanding the difference between finding an occurrence and finding the first/last occurrence.
 - Reinforcing the concept of continuing the search even after finding the target.
 
+
+## Session 6
+
+| Problem | Pattern / Concept |
+|----------|------------------|
+| 367. Valid Perfect Square | Binary Search, Binary Search on Answer, Mathematical Reasoning |
+| 2540. Minimum Common Value | Two Pointers, Sorted Arrays |
+| 2089. Find Target Indices After Sorting Array | Counting, Sorting Observation |
+| 1346. Check If N and Its Double Exist | Hash Set, Lookup Optimization |
+| 1351. Count Negative Numbers in a Sorted Matrix | Binary Search on Rows, Matrix Traversal |
+
+### Key Learnings
+
+- Reinforced Binary Search by applying it to answer-space problems rather than direct searching.
+- Explored how mathematical techniques such as Newton's Method can be used to approximate square roots efficiently.
+- Strengthened understanding of the Two Pointers pattern when working with sorted arrays.
+- Learned that some sorting-related problems can be solved through observation and counting without explicitly sorting the data.
+- Practiced using Hash Sets to achieve constant-time lookups and eliminate unnecessary nested loops.
+- Improved understanding of edge cases while working with double and half value relationships.
+- Applied Binary Search within matrix rows to optimize searching in sorted matrices.
+- Learned how row-wise and column-wise sorting properties can be leveraged together to achieve more optimal matrix traversal solutions.
+- Continued developing the habit of comparing multiple valid approaches and analyzing their time-space trade-offs.
+
+
+
+
 ---
 
 ## Patterns Covered So Far
@@ -143,14 +169,17 @@ Each session represents a focused set of problems solved during my learning proc
 - Prime Factorization
 - Mathematical Observation
 - Mathematical Pattern Recognition
+- Matrix Traversal
+- Counting Techniques
+- Lookup Optimization
 
 ---
 
 ## Progress Summary
 
-- Sessions Completed: **5**
-- Problems Solved: **27**
-- Problem-Solving Patterns Explored: **28+**
+- Sessions Completed: **6**
+- Problems Solved: **32**
+- Problem-Solving Patterns Explored: **30+**
 
 ### Recent Highlights
 
