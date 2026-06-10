@@ -94,6 +94,10 @@ Each session represents a focused set of problems solved during my learning proc
 | 258. Add Digits | Digit Manipulation, Mathematical Pattern |
 | 263. Ugly Number | Prime Factorization, Number Manipulation |
 | 34. Find First and Last Position of Element in Sorted Array | Binary Search, Boundary Search, First & Last Occurrence |
+| 153. Find Minimum in Rotated Sorted Array |
+|209. Minimum Size Subarray Sum|
+| 268. Missing Number|
+
 
 ### Key Learnings
 
