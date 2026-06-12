@@ -134,6 +134,21 @@ Each session represents a focused set of problems solved during my learning proc
 - Learned how row-wise and column-wise sorting properties can be leveraged together to achieve more optimal matrix traversal solutions.
 - Continued developing the habit of comparing multiple valid approaches and analyzing their time-space trade-offs.
 
+Session 7
+
+Problem	Pattern / Concept
+441. Arranging Coins	Binary Search on Answer, Mathematical Observation
+1385. Find the Distance Value Between Two Arrays	Binary Search, Sorting, Efficient Search
+
+Key Learnings
+
+* Strengthened understanding of Binary Search on Answer by applying it to a mathematical counting problem.
+* Learned how monotonic behavior can help define a searchable answer space.
+* Reinforced the idea that Binary Search can be used beyond finding elements in sorted arrays.
+* Practiced combining Sorting and Binary Search to efficiently compare elements across multiple arrays.
+* Improved understanding of how preprocessing data through sorting can significantly reduce search complexity.
+* Continued developing intuition for identifying when brute-force solutions can be optimized using logarithmic-time searching techniques.
+* Gained more confidence in analyzing trade-offs between straightforward implementations and optimized approaches.
 
 
 
@@ -175,10 +190,11 @@ Each session represents a focused set of problems solved during my learning proc
 
 ---
 
+
 ## Progress Summary
 
-- Sessions Completed: **6**
-- Problems Solved: **32**
+- Sessions Completed: **7**
+- Problems Solved: **34**
 - Problem-Solving Patterns Explored: **30+**
 
 ### Recent Highlights
