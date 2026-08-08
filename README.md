@@ -10,7 +10,7 @@ This repository contains my Data Structures and Algorithms practice work, includ
 │   └── arrays/
 ├── data_structure_implementations/
 ├── dsa_topics/
-├── iii_sem_daily_questions/
+├── 3-sem_daily_questions/
 ├── practice_sessions/
 ├── extra_questions/
 └── notes/
