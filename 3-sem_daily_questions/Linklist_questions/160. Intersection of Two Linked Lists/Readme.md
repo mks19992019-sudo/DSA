@@ -1,5 +1,7 @@
 # Intersection of Two Linked Lists
 
+![Image Description](160.png)
+
 ## Problem
 
 Find the node where two singly linked lists intersect. If there is no intersection, return `None`.
