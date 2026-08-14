@@ -1,55 +1,64 @@
 # Check If Linked List is Circular
 
-> **Difficulty:** 🟢 Easy &nbsp;|&nbsp; **Topic:** Linked List — Cycle Detection
+> **Difficulty:** 🟢 Easy &nbsp;|&nbsp; **Topic:** Linked List — Circular Detection
 
 ---
 
 ## Problem Statement
 
-Given the head of a linked list, determine whether it contains a **cycle** (i.e., some node's `.next` points back to a previous node in the list).
+Given the head of a linked list, determine whether it is **circular** (i.e., the last node's `.next` points back to the `head`, forming a complete loop).
 
 **Example:**
 ```
 Circular:     1 → 2 → 3 → 4
-                        ↑       |
-                        └───────┘
+              ↑               |
+              └───────────────┘
 
 Not Circular: 1 → 2 → 3 → None
 ```
 
 ---
 
-## Approach — Floyd's Cycle Detection (Tortoise & Hare)
+## Approach — Normal Traversal (temp == head)
 
-Do pointers use karte hain:
-- **Slow pointer** (`tortoise`) — ek step at a time
-- **Fast pointer** (`hare`) — do steps at a time
+Start a `temp` pointer from `head.next` and keep traversing:
+- If `temp == head` is found, the list is circular → return `True`
+- If `temp == None` is found first, the list is not circular → return `False`
 
 ```python
-def hasCycle(head):
-    slow = head
-    fast = head
+def isCircular(head):
+    temp = head
 
-    while fast and fast.next:
-        slow = slow.next        # 1 step
-        fast = fast.next.next   # 2 steps
-
-        if slow == fast:        # they met — cycle exists!
+    while True:
+        temp = temp.next
+        if temp == None:
+            break
+        if temp == head:
             return True
-
-    return False  # fast reached end — no cycle
+    return False
 ```
 
-**Why do they meet?**
-> Agar cycle hai, toh fast pointer cycle mein ghoomta rehta hai. Slow poochter bhi cycle mein aa jaata hai. Ab dono ek hi loop mein hain aur fast slow se har iteration mein 1 step aage badhta hai — toh eventually dono milenge!
+**Visualization:**
+```
+Circular case:
+head → [1] → [2] → [3] → [4] → (back to head)
+        ↑                          ↑
+       start                 temp == head → True ✓
+
+Non-circular case:
+head → [1] → [2] → [3] → None
+                           ↑
+                      temp == None → False ✓
+```
 
 ---
 
 ## Why This Approach?
 
-- **Visited set** alternative: `O(n)` space use hota hai (har node ko set mein daalo)
-- **Floyd's algorithm** sirf `O(1)` extra space use karta hai — **best approach**
-- Industry-standard algorithm hai cycle detection ke liye
+- Simplest and most direct approach for circular linked list detection
+- In a circular list, the last node's `.next` points exactly to `head` — just check for that
+- `temp == head` directly detects whether the list forms a complete loop
+- Perfect for singly linked lists where the structure is guaranteed to be either fully circular or non-circular
 
 ---
 
@@ -57,11 +66,11 @@ def hasCycle(head):
 
 | | Complexity |
 |---|---|
-| **Time** | `O(n)` — fast pointer poori list traverse karega max |
-| **Space** | `O(1)` — sirf 2 pointers |
+| **Time** | `O(n)` — traverses the list once |
+| **Space** | `O(1)` — only one `temp` pointer |
 
 ---
 
 ## Key Learning
 
-> Floyd's Cycle Detection ek **two-pointer classic** hai. Cycle se related koi bhi question dekho — yahi pehla sochna chahiye. Yeh linked list mein **cycle start dhundne** (LeetCode 142) ke liye bhi extend hota hai.
+> The straightforward way to detect a circular list — start from `head`, move one step at a time, and check if `temp` comes back to `head`. If `None` is encountered first, the list is not circular.

@@ -18,7 +18,7 @@ Design your own linked list class (`MyLinkedList`) from scratch. Implement these
 
 ## Approach — Custom Singly Linked List Class
 
-Ek `Node` class banao aur ek `MyLinkedList` class jo poori list manage kare.
+Build a `Node` class and a `MyLinkedList` class that manages the entire list. Traverse from `head` to reach any index.
 
 ```python
 class Node:
@@ -29,48 +29,83 @@ class Node:
 class MyLinkedList:
     def __init__(self):
         self.head = None
-        self.size = 0
 ```
 
 **Key operations:**
 
 ```python
-# get(index): traverse till index
+# get(index): traverse from head to index
 def get(self, index):
-    if index < 0 or index >= self.size:
+    if self.head == None:
         return -1
-    curr = self.head
-    for _ in range(index):
-        curr = curr.next
-    return curr.val
+    if index == 0:
+        return self.head.val
+    temp = self.head
+    count = 0
+    while temp and count < index:
+        temp = temp.next
+        count += 1
+    if temp == None:
+        return -1
+    return temp.val
 
 # addAtHead: new node → old head
 def addAtHead(self, val):
-    node = Node(val)
-    node.next = self.head
-    self.head = node
-    self.size += 1
+    new_node = Node(val)
+    new_node.next = self.head
+    self.head = new_node
 
 # addAtTail: traverse to end, append
 def addAtTail(self, val):
-    node = Node(val)
-    if not self.head:
-        self.head = node
-    else:
-        curr = self.head
-        while curr.next:
-            curr = curr.next
-        curr.next = node
-    self.size += 1
+    new_node = Node(val)
+    if self.head == None:
+        self.head = new_node
+        return
+    temp = self.head
+    while temp.next:
+        temp = temp.next
+    temp.next = new_node
+
+# addAtIndex: go to (index-1)th node, insert there
+def addAtIndex(self, index, val):
+    if index == 0:
+        self.addAtHead(val)
+        return
+    new_node = Node(val)
+    temp = self.head
+    count = 0
+    while temp and count < index - 1:
+        temp = temp.next
+        count += 1
+    if temp == None:
+        return
+    new_node.next = temp.next
+    temp.next = new_node
+
+# deleteAtIndex: go to (index-1)th node, skip its next
+def deleteAtIndex(self, index):
+    if self.head == None:
+        return
+    if index == 0:
+        self.head = self.head.next
+        return
+    temp = self.head
+    count = 0
+    while temp and count < index - 1:
+        temp = temp.next
+        count += 1
+    if temp == None or temp.next == None:
+        return
+    temp.next = temp.next.next
 ```
 
 ---
 
 ## Why This Approach?
 
-- Khud se linked list banana ek **fundamental skill** hai
-- `size` track karna invalid index checks easy banata hai
-- Operations ka time complexity samajh aata hai practically
+- Building a linked list from scratch is a **fundamental skill**
+- Traversing from `head` to reach an index is the core pattern of linked lists
+- Invalid index cases are handled gracefully with `-1` or early `return`
 
 ---
 
@@ -89,4 +124,4 @@ def addAtTail(self, val):
 
 ## Key Learning
 
-> `size` counter hamesha maintain karo — invalid index handle karna bahut easy ho jaata hai. Aur **sentinel/dummy head node** use karoge toh edge cases (empty list, head insertion) aur bhi simple ho jaate hain.
+> For any index-based operation in a linked list, **traverse to `index - 1`** — then insert or delete from there. Random access like arrays is not possible in linked lists.

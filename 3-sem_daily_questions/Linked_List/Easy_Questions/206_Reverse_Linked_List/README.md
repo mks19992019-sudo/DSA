@@ -18,17 +18,17 @@ Output: 5 → 4 → 3 → 2 → 1
 
 ## Approach — Iterative Pointer Reversal
 
-Teen pointers use karte hain: `prev`, `curr`, aur `next_node`.
+Use three pointers: `prev`, `curr`, and `Next`.
 
-```
+```python
 prev = None
 curr = head
 
 while curr:
-    next_node = curr.next   # save next
-    curr.next = prev        # reverse the link
-    prev = curr             # move prev forward
-    curr = next_node        # move curr forward
+    Next = curr.next    # save next
+    curr.next = prev    # reverse the link
+    prev = curr         # move prev forward
+    curr = Next         # move curr forward
 
 return prev  # new head
 ```
@@ -46,9 +46,9 @@ Final:    None ← 1 ← 2 ← 3 ← 4 ← 5  (prev=5 = new head)
 
 ## Why This Approach?
 
-- **In-place** — no extra list ya stack nahi chahiye
-- **One pass** — single traversal mein kaam ho jaata hai
-- Recursive approach bhi hoti hai but extra O(n) call stack use karti hai — iterative zyada optimal hai
+- **In-place** — no extra list or stack needed
+- **One pass** — done in a single traversal
+- Recursive approach also works but uses extra O(n) call stack space — iterative is more optimal
 
 ---
 
@@ -56,11 +56,11 @@ Final:    None ← 1 ← 2 ← 3 ← 4 ← 5  (prev=5 = new head)
 
 | | Complexity |
 |---|---|
-| **Time** | `O(n)` — ek baar poori list traverse karti hai |
-| **Space** | `O(1)` — sirf 3 pointers, no extra memory |
+| **Time** | `O(n)` — traverses the list once |
+| **Space** | `O(1)` — only 3 pointers, no extra memory |
 
 ---
 
 ## Key Learning
 
-> Link reverse karte waqt **pehle next save karo**, tab hi reverse karo — warna chain toot jaati hai aur baaki list kho jaati hai.
+> When reversing links, **save `next` before reversing** — otherwise the chain breaks and the rest of the list is lost.

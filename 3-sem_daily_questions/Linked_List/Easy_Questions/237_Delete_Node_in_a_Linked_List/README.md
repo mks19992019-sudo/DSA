@@ -20,9 +20,9 @@ Output: 4 → 1 → 9
 
 ## Approach — Copy-Next Trick
 
-Normal deletion mein hum previous node ka `.next` change karte hain. But yahan `head` nahi diya — toh hum previous tak pahunch hi nahi sakte!
+In normal deletion, we change the previous node's `.next`. But here `head` is not given — so we cannot reach the previous node!
 
-**Trick:** Delete karne ki jagah, **current node ko next node se overwrite karo**.
+**Trick:** Instead of deleting the current node, **overwrite it with the next node's value**.
 
 ```python
 node.val = node.next.val    # copy next node's value into current
@@ -42,9 +42,9 @@ Step 2: Skip next node:   ... → [1] → [9]
 
 ## Why This Approach?
 
-- Ye ek **classic trick** hai jab previous node ka access nahi hota
-- Simply agle node ki value copy karo aur agle node ko hi delete kar do
-- Previous node tak traversal ki zaroorat hi nahi padti
+- A **classic trick** when the previous node is not accessible
+- Simply copy the next node's value and unlink the next node
+- No traversal from the previous node is needed at all
 
 ---
 
@@ -52,14 +52,14 @@ Step 2: Skip next node:   ... → [1] → [9]
 
 | | Complexity |
 |---|---|
-| **Time** | `O(1)` — sirf 2 operations |
+| **Time** | `O(1)` — only 2 operations |
 | **Space** | `O(1)` — no extra memory |
 
 ---
 
 ## Key Learning
 
-> Jab node delete karni ho aur head na mile, toh **"delete" mat socho — "overwrite" socho**. Agle node ki value copy karo aur usse unlink karo.
+> When a node must be deleted but `head` is not available, **don't think "delete" — think "overwrite"**. Copy the next node's value and unlink it.
 
 > [!WARNING]
-> Yeh trick **tail node** pe kaam nahi karti. Problem guarantee karti hai ki node tail nahi hoga.
+> This trick does **not** work on the tail node. The problem guarantees the given node will never be the tail.

@@ -18,30 +18,31 @@ Output: 1 → 2 → 3 → 7 → None
 
 ## Approach — Traverse to Tail + Append
 
-Tail tak traverse karo aur naya node wahan attach karo.
+Traverse to the last node and attach the new node there.
 
 ```python
-def insert_at_end(head, val):
-    new_node = Node(val)
+def insertAtEnd(head, x):
+    new_node = Node(x)
 
     # Edge case: empty list
     if head is None:
-        return new_node
+        head = new_node
+        return head
 
     # Traverse to the last node
-    curr = head
-    while curr.next:
-        curr = curr.next
+    temp = head
+    while temp.next != None:
+        temp = temp.next
 
     # Attach new node at the end
-    curr.next = new_node
+    temp.next = new_node
     return head
 ```
 
 **Visualization:**
 ```
 Before: [1] → [2] → [3] → None
-                            ↑ curr stops here (curr.next = None)
+                             ↑ temp stops here (temp.next = None)
 
 After:  [1] → [2] → [3] → [7] → None
 ```
@@ -50,9 +51,9 @@ After:  [1] → [2] → [3] → [7] → None
 
 ## Why This Approach?
 
-- Singly linked list mein tail ka direct access nahi hota — traverse karna padta hai
-- **Optimization**: `tail` pointer maintain karo toh insertion `O(1)` ho jaaye — lekin tab poori list class banana padti hai
-- Basic version mein yeh simplest aur clearest approach hai
+- In a singly linked list, there is no direct access to the tail — traversal is required
+- **Optimization**: maintaining a `tail` pointer makes insertion `O(1)` — but that requires a full list class
+- For the basic version, this is the simplest and clearest approach
 
 ---
 
@@ -60,11 +61,11 @@ After:  [1] → [2] → [3] → [7] → None
 
 | | Complexity |
 |---|---|
-| **Time** | `O(n)` — tail tak traverse karna padta hai |
-| **Space** | `O(1)` — sirf ek naya node |
+| **Time** | `O(n)` — must traverse to reach the tail |
+| **Space** | `O(1)` — only one new node |
 
 ---
 
 ## Key Learning
 
-> Agar baar baar end insertion chahiye, toh **tail pointer** maintain karo in your class — `O(n)` se `O(1)` ho jaayega. Yahi concept `Queue` data structure mein use hota hai (enqueue = insert at tail).
+> If frequent end insertions are needed, maintain a **tail pointer** in your class — reduces from `O(n)` to `O(1)`. This same concept is used in the `Queue` data structure (enqueue = insert at tail).

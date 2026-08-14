@@ -6,55 +6,65 @@
 
 ## Problem Statement
 
-Traverse a **doubly linked list** in both directions — forward (head to tail) and backward (tail to head) — and print all node values.
+Traverse a **doubly linked list** in both directions — forward (head to tail) and backward (tail to head) — and return both sequences as a list.
 
 **Example:**
 ```
 List:     1 ⇄ 2 ⇄ 3 ⇄ 4 ⇄ 5
 
-Forward:  1  2  3  4  5
-Backward: 5  4  3  2  1
+Forward:  [1, 2, 3, 4, 5]
+Backward: [5, 4, 3, 2, 1]
 ```
 
 ---
 
-## Approach — Forward and Backward Pointer Walk
+## Approach — Two-Pass using `next` then `prev`
 
-Doubly linked list mein har node ke paas `prev` aur `next` dono pointers hote hain.
+First traverse forward using the `next` pointer and stop at the last node. Then traverse backward from that point using the `prev` pointer.
 
 ```python
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = None  # points to next node
-        self.prev = None  # points to previous node
+def displayList(head):
+    a = []   # forward list
+    b = []   # backward list
+    temp = head
+
+    # Forward pass: traverse to last node using .next
+    while temp.next:
+        a.append(temp.data)
+        temp = temp.next
+    a.append(temp.data)   # add the last node too
+
+    # Backward pass: temp is now at tail, use .prev to go back
+    while temp:
+        b.append(temp.data)
+        temp = temp.prev
+
+    return [a, b]
 ```
 
-**Forward Traversal:**
-```python
-def traverse_forward(head):
-    curr = head
-    while curr:
-        print(curr.val, end=" → ")
-        curr = curr.next
+**Visualization:**
 ```
+List: 1 ⇄ 2 ⇄ 3 ⇄ 4 ⇄ 5
 
-**Backward Traversal:**
-```python
-def traverse_backward(tail):
-    curr = tail
-    while curr:
-        print(curr.val, end=" → ")
-        curr = curr.prev
+Forward pass (temp.next):
+temp → 1 → 2 → 3 → 4 → 5
+a = [1, 2, 3, 4, 5]      ← last node added with a.append(temp.data)
+
+Backward pass (temp.prev), temp starts at 5:
+temp → 5 → 4 → 3 → 2 → 1
+b = [5, 4, 3, 2, 1]
+
+Return: [[1, 2, 3, 4, 5], [5, 4, 3, 2, 1]]
 ```
 
 ---
 
 ## Why This Approach?
 
-- Doubly linked list ka **main advantage** hi yahi hai — dono directions mein traverse kar sako
-- `prev` pointer ki wajah se backward traversal **O(n)** mein possible hai (singly LL mein impossible without reversing)
-- Browser history, undo/redo systems — real-world mein DLL isi liye use hoti hai
+- The **main advantage** of a doubly linked list is traversal in both directions
+- After the forward pass, `temp` is already at the tail — ready for backward traversal
+- Backward traversal is **O(n)** thanks to the `prev` pointer (impossible in singly LL without reversing first)
+- Real-world use cases: browser history, undo/redo systems
 
 ---
 
@@ -62,11 +72,11 @@ def traverse_backward(tail):
 
 | | Complexity |
 |---|---|
-| **Time** | `O(n)` — poori list ek baar traverse |
-| **Space** | `O(1)` — sirf ek pointer variable |
+| **Time** | `O(n)` — list is traversed twice (forward + backward) |
+| **Space** | `O(n)` — both lists `a` and `b` store all elements |
 
 ---
 
 ## Key Learning
 
-> Doubly Linked List ka **space trade-off** yeh hai: extra `prev` pointer rakhni padti hai (zyada memory), lekin **backward traversal free mein** mil jaata hai. Jab dono directions mein traversal chahiye toh DLL choose karo.
+> The **trade-off** of a Doubly Linked List: it needs an extra `prev` pointer per node (more memory), but backward traversal comes for free. Choose DLL when traversal in both directions is needed.

@@ -18,7 +18,7 @@ Output: 1 2 3 4 5
 
 ## Approach — Simple Traversal
 
-`curr` pointer ko `head` se shuru karo aur tab tak aage badhate raho jab tak `curr` `None` na ho jaaye.
+Start a `curr` pointer at `head` and keep moving forward until `curr` becomes `None`.
 
 ```python
 def print_linked_list(head):
@@ -45,9 +45,9 @@ curr →  [1] → [2] → [3] → [4] → [5] → None
 
 ## Why This Approach?
 
-- Linked list ka **most fundamental operation** — traversal
-- Har doosra linked list operation (search, insert, delete) traversal pe hi depend karta hai
-- Array traverse se alag hai — `index` nahi, `curr.next` use karo
+- Traversal is the **most fundamental operation** of a linked list
+- Every other linked list operation (search, insert, delete) depends on traversal
+- Different from array traversal — use `curr.next` instead of an index
 
 ---
 
@@ -55,11 +55,11 @@ curr →  [1] → [2] → [3] → [4] → [5] → None
 
 | | Complexity |
 |---|---|
-| **Time** | `O(n)` — har node exactly ek baar visit |
-| **Space** | `O(1)` — sirf ek pointer `curr` |
+| **Time** | `O(n)` — every node is visited exactly once |
+| **Space** | `O(1)` — only one pointer `curr` |
 
 ---
 
 ## Key Learning
 
-> Array mein `arr[i]` se random access hoti hai. Linked list mein **random access possible nahi** — hamesha `head` se shuru karke traverse karo. Yahi linked list ki fundamental limitation hai (aur iska trade-off yeh hai ki insertion/deletion `O(1)` hoti hai array ke `O(n)` ke comparison mein).
+> Arrays allow `arr[i]` random access. Linked lists do **not support random access** — always start from `head` and traverse. This is the fundamental limitation of linked lists (the trade-off being that insertion/deletion is `O(1)` vs `O(n)` in arrays).

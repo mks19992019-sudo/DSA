@@ -18,20 +18,20 @@ After:  5 ⇄ 4 ⇄ 3 ⇄ 2 ⇄ 1
 
 ## Approach — Swap `prev` and `next` at Each Node
 
-Har node ke `prev` aur `next` pointers ko **swap** karo, phir `prev` (jo pehle `next` tha) ke saath aage badho.
+Swap the `prev` and `next` pointers at every node, then move to the next node via `prev` (which now holds the original `next` after the swap).
 
 ```python
-def reverse_doubly_linked_list(head):
-    curr = head
-    new_head = None
+def reverse(head):
+    temp = head
+    new_head = head
 
-    while curr:
+    while temp:
         # Swap prev and next pointers
-        curr.prev, curr.next = curr.next, curr.prev
+        temp.next, temp.prev = temp.prev, temp.next
 
-        # Move to the next node (which is now curr.prev after swap)
-        new_head = curr
-        curr = curr.prev
+        # Move to next node (now stored in temp.prev after swap)
+        new_head = temp
+        temp = temp.prev
 
     return new_head
 ```
@@ -49,9 +49,9 @@ Result: 3 ⇄ 2 ⇄ 1 ✓
 
 ## Why This Approach?
 
-- Singly LL reverse karne mein `prev`, `curr`, `next_node` teen pointers chahiye the
-- DLL mein `prev` pointer **already har node mein hota hai** — sirf swap karna hai
-- Ek hi pass, in-place, no extra memory
+- Reversing a singly LL required three separate pointers (`prev`, `curr`, `next_node`)
+- In a DLL, the `prev` pointer is **already present in every node** — just swap it
+- Single pass, in-place, no extra memory needed
 
 ---
 
@@ -59,13 +59,13 @@ Result: 3 ⇄ 2 ⇄ 1 ✓
 
 | | Complexity |
 |---|---|
-| **Time** | `O(n)` — har node exactly ek baar visit |
+| **Time** | `O(n)` — every node is visited exactly once |
 | **Space** | `O(1)` — in-place swap, no extra memory |
 
 ---
 
 ## Key Learning
 
-> Singly LL reverse = **pointer redirection** (3 pointers) \
-> Doubly LL reverse = **pointer swap** (directly swap prev ↔ next)\
-> DLL reverse Singly LL reverse se **conceptually simpler** hai kyunki `prev` pointer already available hai.
+> Singly LL reverse = **pointer redirection** (3 separate pointers) \
+> Doubly LL reverse = **pointer swap** (directly swap prev ↔ next) \
+> DLL reversal is **conceptually simpler** than singly LL reversal because the `prev` pointer is already available.
