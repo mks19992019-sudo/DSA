@@ -11,33 +11,26 @@ class Solution(object):
         :rtype: bool
         """
 
-        def side_symmetric(node,reverse=False):
-            list1 = []
 
-            def check(node):
-                if node ==None:
-                    list1.append(None)
-                    return
+        def check(left, right):
 
-                list1.append(node.val)
-                if reverse:
-                    check(node.right)
-                    check(node.left)
-                    
-                else:
-                    check(node.left)
-                    check(node.right)
-                   
-                    
-            check(node)
-            return list1
+            if left == None and right == None:
+                return True
+
+            if left == None or right == None:
+                return False
+
+            if left.val != right.val:
+                return False
+
+            return check(left.left, right.right) and check(left.right, right.left)
+
         
-        left_side = side_symmetric(root.left)
-        right_side = side_symmetric(root.right,True)
 
-        if left_side == right_side:
-            return True
-        else:
-            return False
+        ans = check(root.left,root.right)  
+        return ans      
+                    
+
+        
             
         
