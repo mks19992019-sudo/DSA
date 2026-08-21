@@ -12,27 +12,28 @@ class Solution(object):
         :rtype: bool
         """
 
-        def values(node):
-            list1 = []
-            def check(node):
-                if node == None:
-                    list1.append(None)
-                    return 
-                list1.append(node.val)
 
-                check(node.left)
-                check(node.right)
-            check(node)
-            return list1
+
+        def check(tree_1,tree_2):
+            if tree_1 ==None and tree_2==None:
+                return True
+                
+            if tree_1 ==None or tree_2 ==None:
+                return False            
+            if tree_1.val != tree_2.val:
+                return False
+                
+            return check(tree_1.left,tree_2.left) and check(tree_1.right,tree_2.right)
+            
+        ans = check(p,q)
+        return ans
+
+
             
         
-        arr1 = values(p)
-        arr2 = values(q)
+     
 
-        if arr1 == arr2:
-            return True
-        else:
-            return False
+
 
 
         
