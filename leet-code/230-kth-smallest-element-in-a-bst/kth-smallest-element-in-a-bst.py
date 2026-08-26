@@ -15,7 +15,7 @@ class Solution(object):
         self.ans = None
 
         def inorder(root,k):
-            if root is None:
+            if root is None or self.ans != None:
                 return 
             
             inorder(root.left,k)
