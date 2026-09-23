@@ -19,24 +19,28 @@ class Solution(object):
 
         current_color = image[sr][sc]
 
+        if current_color == color:
+            return image
+
         q = deque()
-        visited = set()
+        #visited = set()
 
         q.append((sr,sc))
-        visited.add((sr,sc))
+        #visited.add((sr,sc))
         image[sr][sc] = color
 
         while q:
             raw , col = q.popleft()
 
+
             for r_ , c_ in direction:
                 nr = raw+r_
                 nc = col+c_
 
-                if (0<=nr<m) and (0<=nc<n) and image[nr][nc]==current_color and (nr,nc) not in visited:
+                if (0<=nr<m) and (0<=nc<n) and image[nr][nc]==current_color: #and (nr,nc) not in #visited:
                     image[nr][nc] = color
                     q.append((nr,nc))
-                    visited.add((nr,nc))
+                    #visited.add((nr,nc))
         return image
 
 
