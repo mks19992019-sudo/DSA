@@ -21,25 +21,26 @@ class Solution(object):
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 0 and (i,j) not in visited:
-                    close = True
-                    q = deque()
-                    q.append((i,j))
-                    visited.add((i,j))
+                    self.close = True
+                    
 
-                    while q:
-                        r , c = q.popleft()
-                        if r == 0 or r ==m-1 or c==0 or c ==n-1:
-                            close = False
+                    def DFS(r,c):
+                        
+                        visited.add((r,c))
+                        if r == 0 or c == 0 or r ==m-1 or c == n-1:
+                            self.close = False
+                        
 
                         for r_,c_ in directions:
                             nr = r+r_
                             nc = c+c_
 
                             if 0<=nr<m and 0<=nc<n and grid[nr][nc] == 0 and (nr,nc) not in visited:
-                                q.append((nr,nc))
-                                visited.add((nr,nc))
+                                DFS(nr,nc)
+                    DFS(i,j)
+                             
                     
-                    if close:
+                    if self.close:
                         ans +=1
         return ans
 
