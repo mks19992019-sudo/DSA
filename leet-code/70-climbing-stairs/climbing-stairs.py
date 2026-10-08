@@ -4,20 +4,15 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        memo = {}
-        def no_ways(n):
+        if n==1:
+            return 1
 
-            if n == 1:
-                return 1
-            if n == 2:
-                return 2
-            if n in memo:
-                return memo[n]
-            memo[n] = no_ways(n-1) +  no_ways(n-2)
+        dp = [0]*n
+        dp[0]=1
+        dp[1]=2
 
-            return memo[n]
+        for i in range(2,n):
+            dp[i] = dp[i-1]+dp[i-2]
         
-        return no_ways(n) 
-
-
+        return dp[n-1]
         
