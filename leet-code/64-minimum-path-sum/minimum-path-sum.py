@@ -4,30 +4,19 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        memo = {}
-        raw = len(grid)
-        col = len(grid[0])
+        n = len(grid)
+        m = len(grid[0])
 
-        def dfs(i,j):
-            
-            if i >=raw or j>=col:
-                return float('inf')
-            
-            if i == raw-1 and j == col-1:
-                return grid[i][j]
-            
-            
-            if (i,j) in memo:
-                return memo[(i,j)]
-            
-            down = dfs(i+1,j)
-            right=dfs(i,j+1)
+        dp = [[0]*m for _ in range(n)]
 
-            memo[(i,j)] = grid[i][j] + min(down,right)
+        for i in range(n):
+            for j in range(m):
+                if i>0 and j==0:
+                    dp[i][j]= dp[i-1][j] + grid[i][j]
+                elif j>0 and i ==0:
+                    dp[i][j] = dp[i][j-1] + grid[i][j]
+                else:
+                    dp[i][j] = min(dp[i-1][j],dp[i][j-1])+grid[i][j]
+        return dp[n-1][m-1]
 
-            return memo[(i,j)]
-        
-        return dfs(0,0)
-
-        
         
