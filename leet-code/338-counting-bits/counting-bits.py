@@ -1,23 +1,28 @@
 class Solution:
     def countBits(self, n: int) -> list[int]:
+        if n ==0:
+            return [0]
+        
         DP = [0]*(n+1)
+        
         temp = 2
+        DP[0]=0
+        DP[1]=1
 
-        for i in range(n+1):
-            count = 0
-            if i % 2 !=0:
-                DP[i] = DP[i-1]+1
-                continue
-            if temp ==i:
+        for i in range(2,1+n):
+
+            if temp == i:
+                prev_2_place = i
                 DP[i] = 1
-                temp = temp *2
-                continue
+                temp = temp*2
+            else:
+                DP[i] = DP[i-prev_2_place] +1
 
-            num =i
-            while num >0:
-                count += num&1
-                num = num>>1
-            DP[i] = count
         return DP
+        
+
+
+
+        
         
         
