@@ -4,9 +4,8 @@ class Solution:
         a = int(a, 2)
         b = int(b, 2)
 
-        while b != 0:
-            carry = (a & b) << 1
-            a = a ^ b
-            b = carry
+        total = a + b
 
-        return bin(a)[2:]
+        return bin(total)[2:]
+
+        
